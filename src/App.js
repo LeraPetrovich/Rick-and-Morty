@@ -7,7 +7,26 @@ import React, { useState, useEffect } from "react";
 import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
 import styles from './components/Card/Card.module.scss';
-function App() {
+import Navbar from './components/Navbar/Navbar';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Episodes from "./Pages/Episodes";
+import Location from "./Pages/Location";
+function App(){
+  return(
+    <Router>
+<div className="App">
+<Navbar/>
+</div>
+<Routes>
+  <Route path="/" element={<Home/>}/>
+  <Route path="/episodes" element={<Episodes/>}/> 
+  <Route path="/location" element={<Location/>}/>
+</Routes>
+    </Router>
+  )
+}
+//когда в пути ссылки мы меняем в пути /location то открывается страница Location
+const Home=()=> {
   let [pageNumber,setPageNumber]=useState(1); //состояние влияет на переключение имен и самих карточек
   let[fetchedData, updateFetchedData]=useState([]);  //состояние карт
   let {info, results} =fetchedData; 
@@ -25,9 +44,8 @@ let [species, updateSpecies] = useState("");
   },[api]);
   return (
     <div clssName="App">
-<h1 className="text-center ubuntu my-4">
-  Rick & Morty <span className="text-primary">WiKi</span>
-</h1>
+     
+
 <Search setPageNumber={setPageNumber} setSearch={setSearch} />
 <div className="container ">
 <div className="row">
