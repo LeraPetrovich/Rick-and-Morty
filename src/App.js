@@ -12,8 +12,11 @@ function App() {
   let[fetchedData, updateFetchedData]=useState([]);
   let {info, results} =fetchedData;
   let [search, setSearch]=useState("")
+  let [status, updateStatus] = useState("");
+let [gender, updateGender] = useState("");
+let [species, updateSpecies] = useState("");
   console.log(results);
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
   useEffect(()=>{
     (async function(){
       let data =await fetch(api).then(res=>res.json());
@@ -28,12 +31,19 @@ function App() {
 <Search setPageNumber={setPageNumber} setSearch={setSearch} />
 <div className="container ">
 <div className="row">
-<Filters />
-</div>
+<Filters
+pageNumber={pageNumber}
+  status={status}
+  updateStatus={updateStatus}
+  updateGender={updateGender}
+  updateSpecies={updateSpecies}
+  setPageNumber={setPageNumber}
+/>
 <div className={`${styles.content} col-8`}>
   <div className="row ">
     <Cards results={results}/>
   </div>
+</div>
 </div>
 </div>
 <Pagination info={info} setPageNumber={setPageNumber}/>
