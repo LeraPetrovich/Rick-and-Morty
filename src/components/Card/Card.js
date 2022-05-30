@@ -1,14 +1,18 @@
 import React from 'react'
 import styles from './Card.module.scss';
+import { Link } from 'react-router-dom';
 
-const Cards = ({results}) => {
+const Cards = ({results, page}) => {
   let display;
   console.log(results);
  if(results){  //если ввели имя которое есть в списке api
-   display=results.map(x=>{
+   display=results.map((x)=>{
      let {id, name, image, location,status}=x;
      return(
-     <div key={id} className="col-4 mb-4 position-relative">
+     <Link
+     style={{textDecoration: "none"}}
+     to = {`${page}${id}`}
+     key={id} className="col-4 mb-4 position-relative text-dark">
        <div className={styles.cards}>
          <img src={image} className={`${styles.img} img-fluid`} />
          <div style={{padding:"10px"}} className='content'>
@@ -39,7 +43,7 @@ else if(status==="unknown"){
     );
 }
        })()}
-       </div>
+       </Link>
       );
    });
  }
