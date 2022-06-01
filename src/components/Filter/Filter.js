@@ -1,5 +1,5 @@
-import React from 'react'    //rafse Tab
-import  Gender from "../Filter/Category/Gender";
+import React from "react"; //rafse Tab
+import Gender from "../Filter/Category/Gender";
 import Species from "../Filter/Category/Species";
 import Status from "../Filter/Category/Status";
 
@@ -9,7 +9,8 @@ const Filter = ({
   updateStatus,
   updateGender,
   updateSpecies,
-}) => {           ///обнуление 
+}) => {
+  ///обнуление
   let clear = () => {
     updateStatus("");
     updateGender("");

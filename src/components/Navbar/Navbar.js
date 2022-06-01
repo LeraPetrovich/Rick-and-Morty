@@ -1,24 +1,42 @@
-import React from 'react'
-import {NavLink, Link} from "react-router-dom"
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
-  <div className="container-fluid">
-  <Link className="text-center ubuntu my-5" to="/" >Rick & Morty <span className="text-primary">WiKi</span>
-</Link>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-      <div className="navbar-nav fs-5">
-        <NavLink className="nav-link" to="/" >Characters</NavLink>
-        <NavLink className="nav-link" to="/episodes" >Episode</NavLink>
-        <NavLink className="nav-link" to="/location" >Location</NavLink>
+      <div className="container-fluid">
+        <Link className="text-center ubuntu my-5" to="/">
+          Rick & Morty <span className="text-primary">WiKi</span>
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarNavAltMarkup"
+        >
+          <div className="navbar-nav fs-5">
+            <NavLink className="nav-link" to="/">
+              Characters
+            </NavLink>
+            <NavLink className="nav-link" to="/episodes">
+              Episode
+            </NavLink>
+            <NavLink className="nav-link" to="/location">
+              Location
+            </NavLink>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</nav>
-  )
-}
+    </nav>
+  );
+};
 
 export default Navbar;
