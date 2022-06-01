@@ -4,14 +4,15 @@ import { useState, useEffect } from 'react';
 const CardDetails = () => {
     let {id} = useParams();
     let[fetchedData, updateFetchedData]=useState([]);
-    let {name, image,location,origin, gender, species, status,type}=fetchedData;
-    console.log(fetchedData);
+    let {name, image,location,origin, gender, species, status}=fetchedData;
 let api=`https://rickandmortyapi.com/api/character/${id}`;
     useEffect(()=>{   //информация из api
-        (async function(){
+        
+      async function setInformation(){
           let data =await fetch(api).then(res=>res.json());
           updateFetchedData(data);
-        })();
+        }
+        setInformation();
       },[api]);
    
   return (

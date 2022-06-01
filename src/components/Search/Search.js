@@ -7,11 +7,14 @@ const Search = ({setSearch, setPageNumber}) => {
         <input 
        onChange={e=>{        
         setPageNumber(1);            //функция которая работает после окончания значения элемента формы 
-           setSearch(e.target.value);
-       }} placeholder='Search for Characters ' type="text" className={stales.input}/>
+        setSearch(e.target.value);
+       }
+      }
+       placeholder='Search for Characters ' type="text" className={stales.input}/>
         <button onClick={e=>{e.preventDefault()}} className='btn btn-primary'>Search</button>
     </form>
   )
+  
 }
 
 export default Search
