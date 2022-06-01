@@ -30,8 +30,9 @@ const Status = ({ updateStatus, updatePageNumber }) => {
               index={index}
               name="status"
               task={updateStatus}
-              updatePageNumber={updatePageNumber}
               input={item}
+              updatePageNumber={updatePageNumber}
+
             />
           ))}
         </div>

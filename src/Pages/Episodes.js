@@ -64,7 +64,7 @@ const Episodes = () => {
             name={name}
             setID={setID}
             selected={id}
-            episodel={episodes}
+            episodes={episodes}
           />
         </div>
 

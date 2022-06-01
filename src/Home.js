@@ -6,7 +6,8 @@ import React, { useState, useEffect } from "react";
 import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
 import styles from "./components/Card/Card.module.scss";
-const Home = () => {
+//const {search, status, gender, species,  }
+const useCaracters=()=>{
   let [pageNumber, setPageNumber] = useState(1); //состояние влияет на переключение имен и самих карточек
   let [fetchedData, updateFetchedData] = useState([]); //состояние карт
   let { info, results } = fetchedData;
@@ -26,6 +27,13 @@ const Home = () => {
     }
     Async();
   }, [api]);
+  return {pageNumber, setPageNumber, fetchedData, updateFetchedData, info, results, search, setSearch, status, updateStatus, gender, updateGender, species, updateSpecies, debonse}
+}
+
+
+const Home = () => {
+const a=useCaracters();
+const {pageNumber, setPageNumber, info, results, status, updateStatus,  updateGender,  updateSpecies, debonse}=a;
 
   return (
     <div className="App">
