@@ -1,21 +1,18 @@
 import React from "react";
 
-const InputLocation = ({ total, name, setID }) => {
+const InputLocation = ({ name, setID, selected, locations }) => {
   return (
-    <div class="input-group mb-3">
+    <div className="input-group mb-3">
       <select
+        value={selected}
         onChange={(e) => setID(e.target.value)}
-        class="form-select"
+        className="form-select"
         id={name}
       >
-        <option value="1" selected>
-          Choose...
-        </option>
-
-        {[...Array(total).keys()].map((x) => {
+        {locations?.map((location) => {
           return (
-            <option value={x + 1}>
-              {name} - {x + 1}
+            <option value={location.id}>
+              {location.name}-{location.id}
             </option>
           );
         })}

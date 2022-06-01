@@ -32,6 +32,7 @@ const Episodes = () => {
       const url = api2 + "/" + episode.join(",");
       console.log(url);
       let data3 = await fetch(url).then((res) => res.json());
+      console.log(data3)
       setEpisode(data3);
     }
     Read2();
